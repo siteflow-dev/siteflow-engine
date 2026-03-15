@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm install && pnpm turbo build --filter=@siteflow/sites",
+  "outputDirectory": "apps/sites/.next",
+  "installCommand": "pnpm install",
+  "framework": "nextjs"
+}
