@@ -1,0 +1,30 @@
+/*
+ * SiteFlow — Global CSS
+ * Importa o design system base.
+ * A variante do cliente é carregada no layout de cada cliente.
+ */
+
+@import '@siteflow/design-system/styles';
+
+/* Reset adicional */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
