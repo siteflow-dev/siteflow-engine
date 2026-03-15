@@ -1,0 +1,29 @@
+[
+  {
+    "id": "dep-1",
+    "authorName": "Renata Alves",
+    "serviceName": "Cronograma capilar",
+    "text": "Sou negra, tenho cabelo 4C e sempre fui mal atendida em outros salões. Na Divas Hair fui recebida com carinho e saí com o cabelo mais bonito da vida.",
+    "stars": 5,
+    "photoUrl": null,
+    "isReal": false
+  },
+  {
+    "id": "dep-2",
+    "authorName": "Carolina Melo",
+    "serviceName": "Nail Art · Gel",
+    "text": "Agendei pelo site em 3 minutos. A Patrícia confirmou rapidinho pelo WhatsApp. Nail art ficou incrível — exatamente o que pedi. Virei cliente fixa!",
+    "stars": 5,
+    "photoUrl": null,
+    "isReal": false
+  },
+  {
+    "id": "dep-3",
+    "authorName": "Amanda Ribeiro",
+    "serviceName": "Noiva completa",
+    "text": "Me produziram para o meu casamento. A Juliana entendeu exatamente o que eu queria — clássico mas moderno. Chorei de emoção ao me ver no espelho.",
+    "stars": 5,
+    "photoUrl": null,
+    "isReal": false
+  }
+]

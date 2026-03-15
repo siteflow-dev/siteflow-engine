@@ -1,0 +1,21 @@
+/*
+ * SiteFlow Design System — Entry Point
+ * Importar este arquivo no layout.tsx de cada cliente.
+ *
+ * Ordem obrigatoria:
+ *   1. tokens.css     — variaveis base estruturais
+ *   2. variante       — tokens especificos do cliente (sobrescreve tokens)
+ *   3. animations.css — keyframes e classes utilitarias
+ */
+
+@import './tokens.css';
+@import './responsive.css';
+@import './animations.css';
+
+/*
+ * A variante do cliente (ex: dark-elegant.css) deve ser importada
+ * APOS este arquivo, no layout.tsx do cliente:
+ *
+ *   import '@siteflow/design-system/styles'
+ *   import '@siteflow/design-system/styles/variants/dark-elegant.css'
+ */

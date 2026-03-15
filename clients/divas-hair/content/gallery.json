@@ -1,0 +1,42 @@
+[
+  {
+    "id": "gal-1",
+    "category": "Transformações",
+    "imageUrl": null,
+    "placeholderGradient": "linear-gradient(135deg, rgba(107,33,168,0.4), rgba(199,125,186,0.5))",
+    "label": "Transformações",
+    "caption": "Antes e depois — o poder de uma boa coloração"
+  },
+  {
+    "id": "gal-2",
+    "category": "Colorações",
+    "imageUrl": null,
+    "placeholderGradient": "linear-gradient(135deg, rgba(212,175,138,0.3), rgba(107,33,168,0.4))",
+    "label": "Colorações",
+    "caption": "Mechas, balayage e colorações vibrantes"
+  },
+  {
+    "id": "gal-3",
+    "category": "Unhas",
+    "imageUrl": null,
+    "placeholderGradient": "linear-gradient(135deg, rgba(199,125,186,0.4), rgba(212,175,138,0.3))",
+    "label": "Unhas",
+    "caption": "Nail art exclusiva por Patrícia Santos"
+  },
+  {
+    "id": "gal-4",
+    "category": "Tratamentos",
+    "imageUrl": null,
+    "placeholderGradient": "linear-gradient(135deg, rgba(76,29,149,0.5), rgba(199,125,186,0.4))",
+    "label": "Tratamentos & Resultados",
+    "caption": "Hidratação, cronograma e reconstrução capilar"
+  },
+  {
+    "id": "gal-5",
+    "category": "Noivas",
+    "imageUrl": null,
+    "placeholderGradient": "linear-gradient(135deg, rgba(212,175,138,0.4), rgba(76,29,149,0.4))",
+    "label": "Noivas",
+    "caption": "O grande dia com a produção que você merece"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "name": "@siteflow/design-system",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Tokens CSS, variacoes de estilo e animacoes do SiteFlow",
+  "exports": {
+    "./styles": "./styles/index.css",
+    "./styles/tokens": "./styles/tokens.css",
+    "./styles/animations": "./styles/animations.css",
+    "./styles/variants/*": "./styles/variants/*.css"
+  }
+}

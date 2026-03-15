@@ -1,0 +1,98 @@
+[
+  {
+    "id": "corte",
+    "slug": "corte-escova",
+    "name": "Corte & Escova",
+    "emoji": "✂️",
+    "durationMin": 45,
+    "durationLabel": "45 min",
+    "description": "Do corte que transforma à escova que realça o brilho natural dos seus fios.",
+    "items": ["Corte feminino", "Escova progressiva", "Escova modeladora", "Franja e finalização"],
+    "active": true,
+    "sortOrder": 1
+  },
+  {
+    "id": "color",
+    "slug": "coloracao-mechas",
+    "name": "Coloração & Mechas",
+    "emoji": "🎨",
+    "durationMin": 120,
+    "durationLabel": "2h",
+    "description": "Cores vibrantes, mechas naturais ou transformações ousadas — do jeito que você sonhou.",
+    "items": ["Coloração completa", "Mechas e luzes", "Balayage", "Retoque de raiz"],
+    "active": true,
+    "sortOrder": 2
+  },
+  {
+    "id": "trat",
+    "slug": "tratamentos-capilares",
+    "name": "Tratamentos Capilares",
+    "emoji": "💆‍♀️",
+    "durationMin": 60,
+    "durationLabel": "1h",
+    "description": "Nutrição, hidratação e reconstrução para fios de todos os tipos.",
+    "items": ["Hidratação profunda", "Cauterização", "Cronograma capilar", "Tratamento para crespos e cacheados"],
+    "active": true,
+    "sortOrder": 3
+  },
+  {
+    "id": "manicure",
+    "slug": "manicure-pedicure",
+    "name": "Manicure & Pedicure",
+    "emoji": "💅",
+    "durationMin": 45,
+    "durationLabel": "45 min",
+    "description": "Mãos e pés impecáveis com capricho nos detalhes e produtos de qualidade.",
+    "items": ["Manicure clássica", "Pedicure spa", "Gel e fibra de vidro", "Nail art"],
+    "active": true,
+    "sortOrder": 4
+  },
+  {
+    "id": "sobrancelha",
+    "slug": "sobrancelha-cilios",
+    "name": "Sobrancelha & Cílios",
+    "emoji": "👁️",
+    "durationMin": 30,
+    "durationLabel": "30 min",
+    "description": "O enquadramento perfeito do olhar com técnicas modernas e duradouras.",
+    "items": ["Design de sobrancelha", "Henna e micropigmentação", "Extensão de cílios", "Lash lifting"],
+    "active": true,
+    "sortOrder": 5
+  },
+  {
+    "id": "make",
+    "slug": "maquiagem-noivas",
+    "name": "Maquiagem & Noivas",
+    "emoji": "💍",
+    "durationMin": 90,
+    "durationLabel": "1h 30min",
+    "description": "Da make do dia ao grande dia — realçando sua beleza única com arte.",
+    "items": ["Maquiagem social", "Produção para noivas", "Penteados elaborados", "Trial look"],
+    "active": true,
+    "sortOrder": 6
+  },
+  {
+    "id": "depil",
+    "slug": "depilacao",
+    "name": "Depilação",
+    "emoji": "🪶",
+    "durationMin": 60,
+    "durationLabel": "1h",
+    "description": "Pele sedosa e confortável com técnicas suaves e eficazes.",
+    "items": ["Depilação com cera quente", "Cera fria e roll-on", "Linha e buço", "Corpo completo"],
+    "active": true,
+    "sortOrder": 7
+  },
+  {
+    "id": "gel",
+    "slug": "unhas-gel-acrilico",
+    "name": "Unhas em Gel & Acrílico",
+    "emoji": "💎",
+    "durationMin": 90,
+    "durationLabel": "1h 30min",
+    "description": "Unhas alongadas, modeladas e decoradas para durar semanas com beleza.",
+    "items": ["Gel construtor", "Acrílico e porcelana", "Banho de gel", "Remoção e manutenção"],
+    "active": true,
+    "sortOrder": 8
+  }
+]

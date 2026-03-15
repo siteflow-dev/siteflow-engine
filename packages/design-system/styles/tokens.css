@@ -1,0 +1,94 @@
+/*
+ * SiteFlow Design System — Base Tokens
+ * Variaveis CSS que definem a estrutura visual compartilhada.
+ * Cada cliente sobrescreve apenas o que e especifico da sua identidade.
+ *
+ * REGRA: Nunca hardcode valores de cor diretamente nos componentes.
+ *        Use sempre as variaveis definidas aqui ou na variante do cliente.
+ */
+
+:root {
+  /* ── TIPOGRAFIA ──────────────────────────────────────────────────── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* ── ESPACAMENTOS ───────────────────────────────────────────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ── BORDAS ─────────────────────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius:    16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* ── SOMBRAS ────────────────────────────────────────────────────── */
+  --shadow-sm:   0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg:   0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-card: var(--shadow-md);
+
+  /* ── TRANSICOES ─────────────────────────────────────────────────── */
+  --transition:       all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast:  all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow:  all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── LAYOUT ─────────────────────────────────────────────────────── */
+  --nav-height:      72px;
+  --content-max:     1200px;
+  --content-narrow:  800px;
+  --content-wide:    1400px;
+
+  /* ── Z-INDEX ────────────────────────────────────────────────────── */
+  --z-below:   -1;
+  --z-base:    0;
+  --z-above:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-nav:      1000;
+  --z-fab:      999;
+  --z-modal:    2000;
+  --z-toast:    9999;
+
+  /* ── CORES SEMANTICAS (sobrescritas pela variante do cliente) ───── */
+  --primary:        #6B21A8;
+  --primary-light:  #9333EA;
+  --primary-dark:   #4C1D95;
+  --primary-xlight: #F3E8FF;
+  --accent:         #D4AF8A;
+  --accent-light:   #F0D9C0;
+  --rose:           #C77DBA;
+  --rose-light:     #E8B4DE;
+
+  --bg-base:       #FDFBFF;
+  --bg-soft:       #F5F0FA;
+  --bg-mid:        #E8DFF0;
+
+  --text-base:     #0D0D0D;
+  --text-soft:     #374151;
+  --text-muted:    #6B7280;
+  --text-disabled: #9CA3AF;
+
+  --border-color:  #E8DFF0;
+  --border-focus:  var(--primary-light);
+
+  /* ── STATUS ─────────────────────────────────────────────────────── */
+  --success:    #16A34A;
+  --success-bg: rgba(34, 197, 94, 0.1);
+  --warning:    #CA8A04;
+  --warning-bg: rgba(234, 179, 8, 0.1);
+  --error:      #DC2626;
+  --error-bg:   rgba(239, 68, 68, 0.1);
+  --info:       #2563EB;
+  --info-bg:    rgba(37, 99, 235, 0.1);
+}

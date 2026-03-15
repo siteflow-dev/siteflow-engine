@@ -1,0 +1,463 @@
+/*
+ * SiteFlow Design System — Responsividade
+ *
+ * ESTRATEGIA: Mobile-first
+ * Todos os componentes da engine sao escritos para mobile por padrao.
+ * Breakpoints adicionam complexidade progressivamente para telas maiores.
+ *
+ * BREAKPOINTS:
+ *   xs:  < 480px   — telefones pequenos (iPhone SE, Galaxy A)
+ *   sm:  >= 480px  — telefones grandes (iPhone Pro Max, Galaxy S)
+ *   md:  >= 768px  — tablets (iPad, tablets Android)
+ *   lg:  >= 1024px — notebooks pequenos, tablets landscape
+ *   xl:  >= 1280px — desktops, notebooks grandes
+ *   2xl: >= 1536px — monitores grandes, ultrawide
+ *
+ * USO NOS COMPONENTES (Tailwind):
+ *   base (sem prefixo) = mobile
+ *   sm:                = >= 480px
+ *   md:                = >= 768px
+ *   lg:                = >= 1024px
+ *   xl:                = >= 1280px
+ *
+ * REGRAS INEGOCIAVEIS:
+ *   1. Nunca position:fixed sem testar no iOS Safari
+ *   2. Touch targets minimos de 44px de altura
+ *   3. Textos nunca menores que 14px em mobile
+ *   4. Inputs e botoes nunca menores que 48px de altura em mobile
+ *   5. Padding lateral minimo de 20px em mobile para todo o layout
+ *   6. Nunca overflow horizontal — nenhuma secao ultrapassa a largura da tela
+ *   7. Imagens sempre com dimensoes definidas para evitar layout shift (CLS)
+ *   8. Scroll horizontal em tabelas/cards: overflow-x: auto no container
+ */
+
+/* ── VARIAVEIS RESPONSIVAS ───────────────────────────────────────────── */
+
+:root {
+  /* Padding lateral — cresce com a tela */
+  --page-padding-x: 20px;
+
+  /* Tamanhos de fonte responsivos via clamp() */
+  --text-hero:    clamp(2.5rem, 8vw, 5.5rem);  /* 40px → 88px */
+  --text-h1:      clamp(1.75rem, 5vw, 3.5rem); /* 28px → 56px */
+  --text-h2:      clamp(1.375rem, 3vw, 2.25rem);/* 22px → 36px */
+  --text-h3:      clamp(1.125rem, 2vw, 1.5rem); /* 18px → 24px */
+  --text-body:    clamp(0.9rem, 1.5vw, 1.05rem);/* 14px → 17px */
+  --text-small:   clamp(0.8rem, 1.2vw, 0.875rem);/* 13px → 14px */
+
+  /* Padding de secoes */
+  --section-py:   clamp(3rem, 8vw, 6rem);  /* 48px → 96px */
+  --section-py-sm:clamp(2rem, 5vw, 3.5rem);/* 32px → 56px */
+
+  /* Grid gap responsivo */
+  --grid-gap:     clamp(1rem, 3vw, 1.5rem); /* 16px → 24px */
+
+  /* Altura minima de touch targets */
+  --touch-target: 44px;
+  --input-height: 48px;
+  --btn-height-sm:40px;
+  --btn-height:   48px;
+  --btn-height-lg:56px;
+
+  /* Nav */
+  --nav-height:   64px;
+}
+
+/* Tablet: >= 768px */
+@media (min-width: 768px) {
+  :root {
+    --page-padding-x: 32px;
+    --nav-height:     72px;
+  }
+}
+
+/* Desktop: >= 1280px */
+@media (min-width: 1280px) {
+  :root {
+    --page-padding-x: 40px;
+  }
+}
+
+/* ── RESET RESPONSIVO GLOBAL ─────────────────────────────────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Previne zoom automatico em inputs no iOS */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  /* Previne scroll horizontal em qualquer circunstancia */
+  max-width: 100vw;
+}
+
+img,
+video,
+canvas,
+svg {
+  /* Imagens nunca ultrapassam o container */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── UTILITARIOS DE LAYOUT RESPONSIVO ────────────────────────────────── */
+
+/* Container com padding lateral responsivo */
+.sf-container {
+  width: 100%;
+  max-width: var(--content-max, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-padding-x);
+  padding-right: var(--page-padding-x);
+}
+
+.sf-container--narrow {
+  max-width: var(--content-narrow, 800px);
+}
+
+.sf-container--wide {
+  max-width: var(--content-wide, 1400px);
+}
+
+/* Grid responsivo de cards */
+.sf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+}
+
+@media (min-width: 480px) {
+  .sf-grid--2 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .sf-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .sf-grid--auto { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .sf-grid--4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Scroll horizontal para tabelas e listas em mobile */
+.sf-scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Ocultar / mostrar por breakpoint */
+.sf-hide-mobile  { display: none; }
+.sf-hide-desktop { display: block; }
+
+@media (min-width: 768px) {
+  .sf-hide-mobile  { display: block; }
+  .sf-hide-desktop { display: none; }
+}
+
+/* ── COMPONENTES BASE RESPONSIVOS ────────────────────────────────────── */
+
+/* Botoes — touch-friendly em mobile */
+.sf-btn {
+  min-height: var(--btn-height);
+  min-width: 44px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+  border: none;
+  text-decoration: none;
+  white-space: nowrap;
+  /* Previne highlight de tap no mobile */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Inputs — nunca menores que 48px no mobile */
+.sf-input {
+  width: 100%;
+  min-height: var(--input-height);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 1rem; /* Minimo 16px previne zoom no iOS */
+  border: 1px solid var(--border-color);
+  background: var(--bg-base);
+  color: var(--text-base);
+  outline: none;
+  transition: var(--transition);
+  /* Previne zoom no iOS em inputs */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.sf-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+}
+
+/* Navbar — altura responsiva e menu hamburguer */
+.sf-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: var(--z-nav);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--page-padding-x);
+}
+
+/* Hero — padding-top sempre igual a altura da navbar */
+.sf-hero {
+  padding-top: var(--nav-height);
+  min-height: 100svh; /* svh = small viewport height — correto no iOS */
+}
+
+/* Cards de agendamento — 1 coluna mobile, 2 colunas desktop */
+.sf-booking-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 480px) {
+  .sf-booking-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Painel da profissional — tabs com scroll horizontal no mobile */
+.sf-panel-tabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+  /* Esconder scrollbar mantendo funcionalidade */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sf-panel-tabs::-webkit-scrollbar { display: none; }
+
+/* Time slots — grid adaptavel */
+.sf-time-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+@media (min-width: 480px) {
+  .sf-time-slots { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .sf-time-slots { grid-template-columns: repeat(5, 1fr); }
+}
+
+/* Calendario — dia da semana */
+.sf-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* Stats grid — 2 colunas mobile, 4 desktop */
+.sf-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .sf-stats-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Team grid — 1 mobile, 3 desktop */
+.sf-team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .sf-team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .sf-team-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Testimonials — 1 mobile, 3 desktop */
+.sf-dep-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .sf-dep-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Hero content — stack mobile, lado-a-lado desktop */
+.sf-hero-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .sf-hero-content {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+}
+
+/* Ocultar visual do hero em mobile */
+.sf-hero-visual {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .sf-hero-visual { display: flex; }
+}
+
+/* Contato grid — 1 mobile, 2 desktop */
+.sf-contato-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sf-contato-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Filosofia grid — 1 mobile, 2 desktop */
+.sf-filo-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .sf-filo-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* Pillars — 1 mobile, 2 colunas */
+.sf-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* FAB — posicao ajustada em mobile para nao cobrir conteudo */
+.sf-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: var(--z-fab);
+}
+
+@media (min-width: 768px) {
+  .sf-fab {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+/* Booking panel — padding reduzido em mobile */
+.sf-booking-panel {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 480px) {
+  .sf-booking-panel { padding: 2rem; }
+}
+
+@media (min-width: 768px) {
+  .sf-booking-panel { padding: 2.5rem; }
+}
+
+/* Appointment card — layout adaptavel */
+.sf-appt-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 640px) {
+  .sf-appt-card {
+    padding: 1.25rem 1.5rem;
+    flex-wrap: nowrap;
+  }
+}
+
+/* Acoes do card — coluna em mobile, linha em desktop */
+.sf-appt-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media (min-width: 480px) {
+  .sf-appt-actions {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+/* Toast — centralizado, respeitando margens em mobile */
+.sf-toast {
+  position: fixed;
+  bottom: 5rem; /* acima do FAB em mobile */
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  z-index: var(--z-toast);
+  max-width: calc(100vw - 40px);
+  width: max-content;
+}
+
+@media (min-width: 768px) {
+  .sf-toast { bottom: 2rem; }
+}
+
+/* ── ACESSIBILIDADE ──────────────────────────────────────────────────── */
+
+/* Focus visivel para navegacao por teclado */
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reducao de movimento — respeitar preferencia do sistema */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

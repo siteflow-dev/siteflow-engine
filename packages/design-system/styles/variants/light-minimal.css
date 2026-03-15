@@ -1,0 +1,48 @@
+/*
+ * SiteFlow Design System — Variante: light-minimal
+ * Para clinicas, consultorios, negocios profissionais com visual clean.
+ * Exemplo de segmento: CliniCare
+ */
+
+:root {
+  --primary:        #1D4ED8;
+  --primary-light:  #3B82F6;
+  --primary-dark:   #1E3A8A;
+  --primary-xlight: #EFF6FF;
+
+  --accent:         #6EE7B7;
+  --accent-light:   #D1FAE5;
+  --rose:           #93C5FD;
+  --rose-light:     #DBEAFE;
+
+  --bg-base:        #FFFFFF;
+  --bg-soft:        #F8FAFC;
+  --bg-mid:         #E2E8F0;
+  --bg-dark:        #0F172A;
+  --bg-darker:      #020617;
+
+  --text-base:          #0F172A;
+  --text-soft:          #334155;
+  --text-muted:         #64748B;
+  --text-on-dark:       #F8FAFC;
+  --text-on-dark-soft:  rgba(248,250,252,0.70);
+  --text-on-dark-muted: rgba(248,250,252,0.50);
+
+  --border-color:       #E2E8F0;
+  --border-dark:        rgba(30,58,138,0.15);
+  --border-focus:       #3B82F6;
+
+  --shadow-card:   0 2px 16px rgba(29,78,216,0.06);
+  --shadow-soft:   0 4px 24px rgba(29,78,216,0.10);
+  --shadow-button: 0 4px 16px rgba(59,130,246,0.30);
+
+  --gradient-primary:   linear-gradient(135deg, #3B82F6, #6EE7B7);
+
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --radius-sm:   6px;
+  --radius:      12px;
+  --radius-lg:   16px;
+  --radius-full: 9999px;
+}

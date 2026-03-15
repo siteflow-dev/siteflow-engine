@@ -1,0 +1,84 @@
+/*
+ * SiteFlow Design System — Variante: dark-elegant
+ * Identidade visual do Divas Hair.
+ * Usado em: clients/divas-hair/config.ts → design.styleVariant = 'dark-elegant'
+ *
+ * Para criar uma nova variante: copiar este arquivo e ajustar os tokens.
+ * Nome do arquivo = valor do styleVariant no config.ts do cliente.
+ */
+
+:root {
+  /* ── CORES PRIMARIAS ────────────────────────────────────────────── */
+  --primary:        #6B21A8;   /* Roxo profundo — sofisticacao + diversidade */
+  --primary-light:  #9333EA;   /* Roxo claro — botoes, hovers, gradientes */
+  --primary-dark:   #4C1D95;   /* Roxo escuro — estados pressionados */
+  --primary-xlight: #F3E8FF;   /* Roxo bem claro — fundos de hover em light */
+
+  --accent:         #D4AF8A;   /* Rose gold — logo, icones premium, bordas */
+  --accent-light:   #F0D9C0;   /* Rose gold claro — destaques suaves */
+  --rose:           #C77DBA;   /* Rose — gradientes secundarios */
+  --rose-light:     #E8B4DE;   /* Rose claro — textos soft, tags */
+
+  /* ── FUNDOS ─────────────────────────────────────────────────────── */
+  --bg-base:        #FDFBFF;   /* Branco quente — secoes claras (servicos, galeria) */
+  --bg-soft:        #F5F0FA;   /* Cinza lavanda — alternancia entre secoes claras */
+  --bg-mid:         #E8DFF0;   /* Cinza medio — bordas, separadores */
+
+  --bg-dark:        #1A1A2E;   /* Preto azulado — hero, equipe, painel */
+  --bg-darker:      #0D0D0D;   /* Preto puro — footer, filosofia */
+  --bg-dark-soft:   rgba(255, 255, 255, 0.04); /* Cards sobre fundo escuro */
+  --bg-dark-hover:  rgba(107, 33, 168, 0.15);  /* Hover de cards escuros */
+
+  /* ── TEXTOS ─────────────────────────────────────────────────────── */
+  --text-base:          #0D0D0D;               /* Texto em fundos claros */
+  --text-soft:          #374151;               /* Texto secundario claro */
+  --text-muted:         #6B7280;               /* Texto desabilitado/placeholder */
+  --text-on-dark:       #FDFBFF;               /* Texto em fundos escuros */
+  --text-on-dark-soft:  rgba(255,255,255,0.65);/* Texto secundario escuro */
+  --text-on-dark-muted: rgba(255,255,255,0.45);/* Texto terciario escuro */
+
+  /* ── BORDAS ─────────────────────────────────────────────────────── */
+  --border-color:       #E8DFF0;
+  --border-dark:        rgba(212, 175, 138, 0.15); /* Rose gold sutil em fundos escuros */
+  --border-dark-hover:  rgba(212, 175, 138, 0.35);
+  --border-focus:       #9333EA;
+
+  /* ── SOMBRAS CUSTOMIZADAS (com tint da cor primaria) ────────────── */
+  --shadow-card:   0 2px 16px rgba(107, 33, 168, 0.08);
+  --shadow-soft:   0 4px 24px rgba(107, 33, 168, 0.12);
+  --shadow-hover:  0 8px 32px rgba(107, 33, 168, 0.20);
+  --shadow-button: 0 4px 24px rgba(147, 51, 234, 0.30);
+  --shadow-glow:   0 0 0 4px rgba(147, 51, 234, 0.15);
+
+  /* ── GRADIENTES ─────────────────────────────────────────────────── */
+  --gradient-primary:   linear-gradient(135deg, #9333EA, #C77DBA);
+  --gradient-hero-bg:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(107,33,168,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 80% at 10% 80%, rgba(199,125,186,0.20) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 40% at 90% 10%, rgba(212,175,138,0.15) 0%, transparent 50%);
+  --gradient-section-dark:
+    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(107,33,168,0.12) 0%, transparent 70%);
+  --gradient-avatar:    linear-gradient(135deg, rgba(107,33,168,0.5), rgba(199,125,186,0.4));
+
+  /* ── TIPOGRAFIA ─────────────────────────────────────────────────── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Tamanhos de fonte do hero */
+  --hero-title-size: clamp(3rem, 6vw, 5.5rem);
+
+  /* ── ESPACAMENTO E FORMA ────────────────────────────────────────── */
+  --radius-sm:   8px;
+  --radius:      16px;
+  --radius-lg:   20px;
+  --radius-full: 9999px;
+
+  /* ── HERO PATTERN ───────────────────────────────────────────────── */
+  --hero-pattern: repeating-linear-gradient(
+    45deg,
+    rgba(212, 175, 138, 1) 0px,
+    rgba(212, 175, 138, 1) 1px,
+    transparent 1px,
+    transparent 40px
+  );
+}

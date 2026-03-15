@@ -1,0 +1,38 @@
+{
+  "headline": "Toda mulher merece se sentir diva",
+  "subheadline": "Um espaço criado para celebrar todas as mulheres — independente de cor, estilo, textura de cabelo ou classe social. Aqui, beleza é inclusão.",
+  "ctaPrimary": "Agendar horário",
+  "ctaSecondary": "Ver serviços",
+  "about": [
+    "Na Divas Hair, acreditamos que cada mulher carrega uma beleza singular — e nosso papel é fazê-la brilhar do jeito que ela é, sem moldes ou padrões.",
+    "Seja você de cabelo liso, crespo, cacheado ou ondulado; seja qual for sua cor de pele, sua classe ou seu estilo: aqui, você é bem-vinda e será tratada como a diva que é.",
+    "Nosso salão é um espaço de acolhimento, empoderamento feminino e cuidado genuíno — porque beleza verdadeira começa no respeito."
+  ],
+  "stats": [
+    { "value": "500+", "label": "Clientes atendidas", "isReal": false },
+    { "value": "8",    "label": "Serviços disponíveis", "isReal": true },
+    { "value": "Em breve", "label": "Av. Cupecê", "isReal": false }
+  ],
+  "pillars": [
+    {
+      "icon": "🌸",
+      "title": "Inclusividade",
+      "description": "Todas as texturas, tons e estilos são celebrados aqui"
+    },
+    {
+      "icon": "✨",
+      "title": "Excelência",
+      "description": "Profissionais especializadas e produtos premium"
+    },
+    {
+      "icon": "💜",
+      "title": "Acolhimento",
+      "description": "Um ambiente seguro, confortável e empoderador"
+    },
+    {
+      "icon": "🔐",
+      "title": "Confiança",
+      "description": "Agendamento transparente com confirmação dupla"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ana",
+    "slug": "ana-lima",
+    "name": "Ana Lima",
+    "initials": "AL",
+    "role": "Especialista em Cabelos",
+    "specialties": ["Coloração", "Corte", "Balayage", "Cacheados"],
+    "bio": "Especialista em coloração e técnicas para cabelos crespos e cacheados. Mais de 8 anos de experiência transformando e celebrando todos os tipos de fio.",
+    "photoUrl": null,
+    "acceptsBooking": true,
+    "active": true
+  },
+  {
+    "id": "patricia",
+    "slug": "patricia-santos",
+    "name": "Patrícia Santos",
+    "initials": "PS",
+    "role": "Manicure & Nail Designer",
+    "specialties": ["Gel", "Nail Art", "Acrílico", "Pedicure"],
+    "bio": "Nail designer com especialização em gel construtor e nail art. Cada trabalho é uma obra de arte pensada exclusivamente para você.",
+    "photoUrl": null,
+    "acceptsBooking": true,
+    "active": true
+  },
+  {
+    "id": "juliana",
+    "slug": "juliana-costa",
+    "name": "Juliana Costa",
+    "initials": "JC",
+    "role": "Make & Estética",
+    "specialties": ["Maquiagem", "Noivas", "Sobrancelha", "Cílios"],
+    "bio": "Maquiadora e esteticista especializada em produções para ocasiões especiais. Referência em maquiagem para noivas na Zona Sul.",
+    "photoUrl": null,
+    "acceptsBooking": true,
+    "active": true
+  }
+]
